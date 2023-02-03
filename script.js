@@ -1,4 +1,3 @@
-import { API_KEY } from './apikey';
 const container = document.querySelector('.container');
 const viewportWidth = window.innerWidth;
 const viewportHeight = window.innerHeight;
