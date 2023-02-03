@@ -1,19 +1,30 @@
+// Select the container where the boxes will be added
 const container = document.querySelector('.container');
+
+// Get the width and height of the viewport
 const viewportWidth = window.innerWidth;
 const viewportHeight = window.innerHeight;
 
+// Loop 100 times to create 100 boxes
 for (let i = 0; i < 100; i++) {
-  const box = document.createElement('div');
-  box.classList.add('box');
-  container.appendChild(box);
-
-  if (i === 15) {
+    // Create a div element
+    const box = document.createElement('div');
+    
+    // Add the 'box' class to the div element
+    box.classList.add('box');
+    
+    // Append the div element to the container
+    container.appendChild(box);
+    
+    // If this is the 15th box, set its background color to yellow
+    if (i === 15) {
     box.style.backgroundColor = "yellow";
-  }
-
-  box.style.top = Math.random() * (viewportHeight - 50) + "px";
-  box.style.left = Math.random() * (viewportWidth - 50) + "px";
-}
+    }
+    
+    // Set the box's position to a random value within the viewport
+    box.style.top = Math.random() * (viewportHeight - 50) + "px";
+    box.style.left = Math.random() * (viewportWidth - 50) + "px";
+    }
 
 const moveYourAss = setInterval(() => {
   elements = document.getElementsByClassName("box");
