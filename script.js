@@ -42,6 +42,9 @@ const moveYourAss = setInterval(() => {
         }
     }
 }, 1);
+// Counter for clicks that missed the target (non-yellow boxes)
+let failedClicks = 0;
+
 /* Check if clicked */
 clickedBox = document.getElementsByClassName("box");
 for (let i = 0; i < clickedBox.length; i++) {
@@ -49,11 +52,14 @@ for (let i = 0; i < clickedBox.length; i++) {
         console.log("Box " + i + " has been clicked!");
         if (clickedBox[i].style.backgroundColor == "yellow") {
             console.log("You have won!");
+            // Show the total number of failed clicks in the win modal
+            document.getElementById("failedClicksText").textContent = "Failed clicks: " + failedClicks;
             fetchWinningGif();
             modal.style.display = "block";
             clearInterval(moveYourAss);
         } else {
-            console.log("Bad!!");
+            failedClicks++;
+            console.log("Bad!! Failed clicks: " + failedClicks);
         }
     });
 }
